@@ -1,0 +1,20 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.input {
+  width: 100%;
+  min-height: 52px;
+  border: 1px solid $color-line;
+  border-radius: 14px;
+  padding: 0 16px;
+  color: $color-ink;
+  background: $color-white;
+
+  &::placeholder {
+    color: #8a93a6;
+  }
+
+  &:focus {
+    @include focus-ring;
+  }
+}

@@ -1,0 +1,54 @@
+@use "@/styles/variables" as *;
+
+.footer {
+  margin-top: 72px;
+  padding: 48px 0 24px;
+  border-top: 1px solid $color-line;
+  background: $color-white;
+}
+
+.grid {
+  display: grid;
+  gap: 32px;
+
+  p {
+    max-width: 280px;
+    margin: 16px 0 0;
+    color: $color-muted;
+    line-height: 1.55;
+  }
+
+  h2 {
+    margin: 0 0 14px;
+    font-size: 15px;
+  }
+
+  nav,
+  address {
+    display: grid;
+    gap: 10px;
+    font-style: normal;
+  }
+}
+
+.logo {
+  color: $color-ink;
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  margin-top: 36px;
+  color: $color-muted;
+  font-size: 13px;
+}
+
+@media (min-width: 760px) {
+  .grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+}

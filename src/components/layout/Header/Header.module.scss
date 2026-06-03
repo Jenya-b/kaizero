@@ -1,0 +1,62 @@
+@use "@/styles/variables" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(229, 233, 242, 0.75);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(18px);
+}
+
+.inner {
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
+
+  span {
+    display: inline-flex;
+    width: 34px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: $color-white;
+    background: linear-gradient(135deg, $color-blue 55%, $color-gold 55%);
+  }
+}
+
+.nav {
+  display: none;
+  align-items: center;
+  gap: 26px;
+  color: $color-ink;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+@media (min-width: 900px) {
+  .nav {
+    display: flex;
+  }
+}
+
+@media (max-width: 620px) {
+  .inner {
+    min-height: 68px;
+  }
+
+  .inner > a:last-child {
+    display: none;
+  }
+}
