@@ -103,6 +103,18 @@ export function ContactForm() {
             placeholder="Коротко о вашем запросе"
             aria-label="Коротко о вашем запросе"
           />
+          <label className={styles.consent}>
+            <input
+              type="checkbox"
+              name="personalDataConsent"
+              required
+              aria-label="Согласие на обработку персональных данных"
+            />
+            <span>
+              Согласен на обработку персональных данных и получение ответа на
+              заявку
+            </span>
+          </label>
           <Button type="submit" disabled={status === "sending"}>
             {status === "sending" ? "Отправляем..." : "Отправить заявку"}
           </Button>

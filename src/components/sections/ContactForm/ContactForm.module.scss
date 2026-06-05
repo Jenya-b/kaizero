@@ -52,6 +52,27 @@
   }
 }
 
+.consent {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  align-items: start;
+  color: $color-muted;
+  font-size: 14px;
+  line-height: 1.45;
+
+  input {
+    width: 18px;
+    height: 18px;
+    margin: 2px 0 0;
+    accent-color: $color-blue;
+  }
+
+  input:focus-visible {
+    @include focus-ring;
+  }
+}
+
 .success,
 .error {
   margin: 0;
@@ -77,6 +98,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
 
     textarea,
+    .consent,
     button,
     .success,
     .error,

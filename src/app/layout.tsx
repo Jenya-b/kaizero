@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CookieBanner } from "@/components/ui/CookieBanner/CookieBanner";
 import { Manrope } from "next/font/google";
 import { siteMetadata } from "./metadata";
 import "./globals.scss";
@@ -14,7 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" className={manrope.variable}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <CookieBanner />
+      </body>
     </html>
   );
 }
