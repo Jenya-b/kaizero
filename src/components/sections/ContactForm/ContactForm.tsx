@@ -1,12 +1,47 @@
-import { Button } from '@/components/ui/Button/Button';
-import { Container } from '@/components/ui/Container/Container';
-import { Input } from '@/components/ui/Input/Input';
-import { SectionTitle } from '@/components/ui/SectionTitle/SectionTitle';
-import { Textarea } from '@/components/ui/Textarea/Textarea';
-import styles from './ContactForm.module.scss';
-import Image from 'next/image';
+"use client";
+
+import { Button } from "@/components/ui/Button/Button";
+import { Container } from "@/components/ui/Container/Container";
+import { Input } from "@/components/ui/Input/Input";
+import { SectionTitle } from "@/components/ui/SectionTitle/SectionTitle";
+import { Textarea } from "@/components/ui/Textarea/Textarea";
+import Image from "next/image";
+import { type FormEvent, useState } from "react";
+import styles from "./ContactForm.module.scss";
 
 export function ContactForm() {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
+    "idle",
+  );
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("sending");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(Object.fromEntries(formData)),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        form.reset();
+        setStatus("success");
+        return;
+      }
+    } catch {
+      setStatus("error");
+    }
+
+    setStatus("error");
+  }
+
   return (
     <section className={styles.section} id="contact">
       <Container className={styles.panel}>
@@ -35,12 +70,13 @@ export function ContactForm() {
             </a>
           </div>
         </div>
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <Input
             type="text"
             name="name"
             placeholder="Ваше имя"
             aria-label="Ваше имя"
+            required
           />
           <Input
             type="text"
@@ -49,23 +85,35 @@ export function ContactForm() {
             aria-label="Компания"
           />
           <Input
-            type="text"
+            type="email"
             name="email"
             placeholder="Email"
             aria-label="Email"
+            required
           />
           <Input
-            type="text"
-            name="tel"
+            type="tel"
+            name="phone"
             placeholder="Телефон"
             aria-label="Телефон"
+            required
           />
           <Textarea
             name="message"
             placeholder="Коротко о вашем запросе"
             aria-label="Коротко о вашем запросе"
           />
-          <Button type="submit">Отправить заявку</Button>
+          <Button type="submit" disabled={status === "sending"}>
+            {status === "sending" ? "Отправляем..." : "Отправить заявку"}
+          </Button>
+          {status === "success" && (
+            <p className={styles.success}>Заявка отправлена. Скоро свяжемся с вами.</p>
+          )}
+          {status === "error" && (
+            <p className={styles.error}>
+              Не удалось отправить заявку. Проверьте данные и попробуйте еще раз.
+            </p>
+          )}
           <small>
             Ваши данные в безопасности и не передаются третьим лицам
           </small>

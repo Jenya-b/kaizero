@@ -52,6 +52,21 @@
   }
 }
 
+.success,
+.error {
+  margin: 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+.success {
+  color: #217a3a;
+}
+
+.error {
+  color: #b42318;
+}
+
 @media (min-width: 860px) {
   .panel {
     grid-template-columns: 0.9fr 1.1fr;
@@ -63,6 +78,8 @@
 
     textarea,
     button,
+    .success,
+    .error,
     small {
       grid-column: 1 / -1;
     }
