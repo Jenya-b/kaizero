@@ -1,4 +1,4 @@
-@use "@/styles/variables" as *;
+@use '@/styles/variables' as *;
 
 .footer {
   margin-top: 72px;
@@ -25,7 +25,8 @@
 
   nav,
   address {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
     font-style: normal;
   }

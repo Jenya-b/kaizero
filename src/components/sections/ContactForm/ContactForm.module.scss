@@ -1,5 +1,5 @@
-@use "@/styles/variables" as *;
-@use "@/styles/mixins" as *;
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .section {
   padding: 28px 0;
@@ -36,6 +36,9 @@
     color: $color-blue;
     background: $color-white;
     font-weight: 800;
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
   }
 }
 
@@ -58,7 +61,6 @@
   .form {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    input:nth-child(3),
     textarea,
     button,
     small {

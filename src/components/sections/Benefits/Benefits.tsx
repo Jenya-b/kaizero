@@ -1,7 +1,8 @@
-import { Container } from "@/components/ui/Container/Container";
-import { SectionTitle } from "@/components/ui/SectionTitle/SectionTitle";
-import { benefits } from "@/constants/content";
-import styles from "./Benefits.module.scss";
+import { Container } from '@/components/ui/Container/Container';
+import { SectionTitle } from '@/components/ui/SectionTitle/SectionTitle';
+import { benefits } from '@/constants/content';
+import styles from './Benefits.module.scss';
+import Image from 'next/image';
 
 export function Benefits() {
   return (
@@ -16,10 +17,7 @@ export function Benefits() {
           </ul>
         </div>
         <div className={styles.visual} aria-hidden="true">
-          <span>Видимость</span>
-          <span>Контроль</span>
-          <span>Эффективность</span>
-          <strong>Результат</strong>
+          <Image alt="" src="/images/triangle.png" fill />
         </div>
       </Container>
     </section>

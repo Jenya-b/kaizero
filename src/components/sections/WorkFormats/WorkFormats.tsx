@@ -1,7 +1,8 @@
-import { Container } from "@/components/ui/Container/Container";
-import { SectionTitle } from "@/components/ui/SectionTitle/SectionTitle";
-import { formats } from "@/constants/content";
-import styles from "./WorkFormats.module.scss";
+import { Container } from '@/components/ui/Container/Container';
+import { SectionTitle } from '@/components/ui/SectionTitle/SectionTitle';
+import { formats } from '@/constants/content';
+import styles from './WorkFormats.module.scss';
+import Image from 'next/image';
 
 export function WorkFormats() {
   return (
@@ -11,7 +12,13 @@ export function WorkFormats() {
         <div className={styles.grid}>
           {formats.map((format) => (
             <article className={styles.format} key={format.title}>
-              <span className={styles.icon}>{format.icon}</span>
+              <Image
+                alt=""
+                src={format.icon}
+                width={20}
+                height={20}
+                className={styles.icon}
+              />
               <div>
                 <h3>{format.title}</h3>
                 <p>{format.text}</p>

@@ -1,24 +1,12 @@
-import type { CardItem } from "@/types/common";
-import styles from "./Card.module.scss";
-
-const iconLabels: Record<CardItem["icon"], string> = {
-  factory: "PR",
-  people: "B2B",
-  building: "UP",
-  owner: "CEO",
-  search: "AN",
-  map: "MAP",
-  idea: "IDEA",
-  check: "OK",
-  rocket: "GO",
-  shield: "SEC",
-};
+import type { CardItem } from '@/types/common';
+import styles from './Card.module.scss';
+import Image from 'next/image';
 
 export function Card({ title, text, icon }: CardItem) {
   return (
     <article className={styles.card}>
       <span className={styles.icon} aria-hidden="true">
-        {iconLabels[icon]}
+        <Image alt="" src={icon} width={30} height={30} />
       </span>
       <div>
         <h3>{title}</h3>

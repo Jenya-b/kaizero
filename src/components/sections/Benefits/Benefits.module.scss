@@ -1,5 +1,5 @@
-@use "@/styles/variables" as *;
-@use "@/styles/mixins" as *;
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .section {
   padding: 28px 0;
@@ -14,6 +14,12 @@
 .visual {
   @include card;
   padding: 28px 18px;
+  position: relative;
+
+  img {
+    padding: 30px;
+    object-fit: contain;
+  }
 }
 
 .card {
@@ -42,7 +48,7 @@
     border-radius: 50%;
     color: $color-white;
     background: $color-blue;
-    content: "✓";
+    content: '✓';
   }
 }
 
@@ -52,7 +58,11 @@
   place-content: center;
   gap: 14px;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(246, 238, 226, 0.75)),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.94),
+      rgba(246, 238, 226, 0.75)
+    ),
     $color-white;
   text-align: center;
 
