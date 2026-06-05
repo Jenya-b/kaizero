@@ -31,7 +31,7 @@ export function Footer() {
       </Container>
       <Container className={styles.bottom}>
         <span>© 2025 Kaizero. Все права защищены.</span>
-        <a href="#contact">Политика конфиденциальности</a>
+        {/* <a href="#contact">Политика конфиденциальности</a> */}
       </Container>
     </footer>
   );
