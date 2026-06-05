@@ -1,0 +1,35 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.card {
+  @include card;
+  display: grid;
+  min-height: 150px;
+  gap: 18px;
+  padding: 24px;
+
+  h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  p {
+    margin: 0;
+    color: $color-muted;
+    line-height: 1.55;
+  }
+}
+
+.icon {
+  display: inline-flex;
+  width: 54px;
+  height: 54px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  color: $color-blue;
+  background: linear-gradient(135deg, #eef3ff, $color-gold-soft);
+  font-size: 13px;
+  font-weight: 900;
+}

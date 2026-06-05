@@ -1,0 +1,98 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  padding: 28px 0;
+}
+
+.panel {
+  @include card;
+  padding: 28px 18px;
+  background: linear-gradient(135deg, #ffffff, #f3f6fb);
+}
+
+.steps {
+  display: grid;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 8px 16px;
+    align-items: start;
+  }
+
+  h3 {
+    margin: 0;
+    margin-top: 10px;
+    font-size: 18px;
+  }
+
+  p {
+    grid-column: 2;
+    margin: 0;
+    color: $color-muted;
+    line-height: 1.5;
+  }
+}
+
+.number,
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: $color-white;
+  background: $color-blue;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.icon {
+  grid-column: 2;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  color: $color-blue;
+  background: $color-white;
+  box-shadow: 0 8px 20px rgba(7, 18, 46, 0.07);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+@media (min-width: 900px) {
+  .panel {
+    padding: 40px;
+  }
+
+  .steps {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    li {
+      display: block;
+      text-align: center;
+    }
+
+    p {
+      margin-top: 8px;
+    }
+  }
+
+  .number,
+  .icon {
+    margin-inline: auto;
+  }
+
+  .icon {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+}

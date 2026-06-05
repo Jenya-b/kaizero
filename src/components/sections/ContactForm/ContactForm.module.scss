@@ -1,0 +1,109 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  padding: 28px 0;
+}
+
+.panel {
+  @include card;
+  display: grid;
+  gap: 28px;
+  padding: 28px 18px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.8)),
+    linear-gradient(135deg, #edf3ff, #f7ead8);
+}
+
+.copy {
+  p {
+    max-width: 520px;
+    margin: 0;
+    color: $color-muted;
+    line-height: 1.65;
+  }
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+
+  a {
+    border-radius: 999px;
+    padding: 10px 14px;
+    color: $color-blue;
+    background: $color-white;
+    font-weight: 800;
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+  }
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+
+  small {
+    color: $color-muted;
+    text-align: center;
+  }
+}
+
+.consent {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  align-items: start;
+  color: $color-muted;
+  font-size: 14px;
+  line-height: 1.45;
+
+  input {
+    width: 18px;
+    height: 18px;
+    margin: 2px 0 0;
+    accent-color: $color-blue;
+  }
+
+  input:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.success,
+.error {
+  margin: 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+.success {
+  color: #217a3a;
+}
+
+.error {
+  color: #b42318;
+}
+
+@media (min-width: 860px) {
+  .panel {
+    grid-template-columns: 0.9fr 1.1fr;
+    padding: 40px;
+  }
+
+  .form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    textarea,
+    .consent,
+    button,
+    .success,
+    .error,
+    small {
+      grid-column: 1 / -1;
+    }
+  }
+}

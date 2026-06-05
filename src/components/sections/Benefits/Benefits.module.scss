@@ -1,0 +1,92 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  padding: 28px 0;
+}
+
+.grid {
+  display: grid;
+  gap: 18px;
+}
+
+.card,
+.visual {
+  @include card;
+  padding: 28px 18px;
+  position: relative;
+
+  img {
+    padding: 30px;
+    object-fit: contain;
+  }
+}
+
+.card {
+  ul {
+    display: grid;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    gap: 12px;
+    color: $color-muted;
+    line-height: 1.55;
+  }
+
+  li::before {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: $color-white;
+    background: $color-blue;
+    content: '✓';
+  }
+}
+
+.visual {
+  display: grid;
+  min-height: 300px;
+  place-content: center;
+  gap: 14px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.94),
+      rgba(246, 238, 226, 0.75)
+    ),
+    $color-white;
+  text-align: center;
+
+  span,
+  strong {
+    border: 1px solid $color-line;
+    border-radius: 999px;
+    padding: 12px 18px;
+    background: $color-white;
+    box-shadow: 0 8px 18px rgba(7, 18, 46, 0.06);
+  }
+
+  strong {
+    color: $color-gold;
+  }
+}
+
+@media (min-width: 860px) {
+  .grid {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+
+  .card,
+  .visual {
+    padding: 38px;
+  }
+}
