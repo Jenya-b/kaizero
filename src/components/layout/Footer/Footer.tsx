@@ -25,8 +25,10 @@ export function Footer() {
         </nav>
         <address>
           <h2>Контакты</h2>
-          <a href="mailto:hello@kaizero.by">evgeniy_borisevich@outlook.com</a>
-          <a href="tel:+375291234567">+375 (33) 642-22-45</a>
+          <a href="mailto:evgeniy_borisevich@outlook.com">
+            evgeniy_borisevich@outlook.com
+          </a>
+          <a href="tel:+375336422245">+375 (33) 642-22-45</a>
         </address>
       </Container>
       <Container className={styles.bottom}>
